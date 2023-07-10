@@ -10,7 +10,7 @@ import com.greatlearning.employeemanagement.dao.EmployeeRepository;
 import com.greatlearning.employeemanagement.entity.Employee;
 
 @Service
-public class EmployeeServiceImpl implements EmployeeService{
+public class EmployeeServiceImplementation implements EmployeeService{
 	
 	@Autowired
 	EmployeeRepository repository;

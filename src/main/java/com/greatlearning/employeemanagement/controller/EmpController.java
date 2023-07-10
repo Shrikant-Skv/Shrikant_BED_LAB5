@@ -14,7 +14,7 @@ import com.greatlearning.employeemanagement.service.EmployeeService;
 
 @Controller
 @RequestMapping("/employees")
-public class EmployeeController {
+public class EmpController {
 	
 	@Autowired
 	EmployeeService service;
@@ -24,6 +24,7 @@ public class EmployeeController {
 	 *  /employees/new -- GET
 	 *  /employees/edit/{id} -- GET
 	 *  /employees/delete/{id} -- GET
+	 *  
 	 *  /employees/save --POST
 	 *  /employees/save/{id} --POST
 	 */
@@ -50,12 +51,14 @@ public class EmployeeController {
 	public String deleteEmployee(@PathVariable(name = "id")Integer id) {
 		service.deleteById(id);
 		return "redirect:/employees/";
+		//it will redirect us to the EmployeeList main page after delete.
 	}
 	
 	@PostMapping("/save")
 	public String createEmployee(@ModelAttribute(name = "employee") Employee emp) {
 		service.saveEmployee(emp);
 		return "redirect:/employees/";
+		//it will redirect us to the EmployeeList main page after save.
 	}
 	
 	@PostMapping("/save/{id}")
@@ -63,6 +66,7 @@ public class EmployeeController {
 		emp.setEmpId(id);
 		service.saveEmployee(emp);
 		return "redirect:/employees/";
+		//it will redirect us to the EmployeeList main page after save.
 	}
 	
 }
